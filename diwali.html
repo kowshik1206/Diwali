@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Diwali 🎆</title>
+
+    <style>
+        /* Global Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0d0d1a;
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-top: 20px;
+            color: #ffd700;
+            text-shadow: 0 0 30px #ffff00, 0 0 60px #ffa500;
+            animation: flicker 2s infinite alternate;
+        }
+
+        /* Flicker Animation */
+        @keyframes flicker {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .diwali-content {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
+            animation: fadeIn 2s;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.2rem;
+        }
+
+        ul {
+            text-align: left;
+            padding-left: 40px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 255, 0, 0.9);
+        }
+
+        /* Decorative Lights Animation */
+        .lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #0000ff, #ff00ff);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            animation: blink 1.5s infinite alternate;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Decorative Lights -->
+    <div class="lights"></div>
+
+    <h1>🎇 Happy Diwali 🎆</h1>
+
+    <div class="diwali-content">
+        <p><strong>Diwali: The Festival of Lights</strong></p>
+        <p>Diwali, also known as Deepavali, is one of the most celebrated festivals in India. It signifies the triumph of light over darkness, good over evil, and knowledge over ignorance. The word ‘Deepavali’ translates to a ‘row of lamps,’ symbolizing the tradition of lighting oil lamps to illuminate homes and streets.</p>
+
+        <ul>
+            <li><strong>Dhanteras</strong>: Marks prosperity and buying gold or silver.</li>
+            <li><strong>Choti Diwali</strong>: Symbolizes the victory of good over evil.</li>
+            <li><strong>Diwali</strong>: The main day for worshipping Goddess Lakshmi and Lord Ganesha.</li>
+            <li><strong>Govardhan Puja</strong>: Celebrates Lord Krishna’s triumph over Indra.</li>
+            <li><strong>Bhai Dooj</strong>: Honors the bond between siblings.</li>
+        </ul>
+    </div>
+
+    <div class="gallery">
+        <img src="https://img.freepik.com/premium-photo/diwali-festival-lights-diwali-celebration-diwali-decorations-diwali-festival-diwali-lights_980716-8295.jpg" alt="Diwali Lights">
+        <img src="https://display.blogto.com/articles/202410180-fireworks-diwali.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=70" alt="Fireworks">
+        <img src="https://i.pinimg.com/originals/6d/85/49/6d85494d5d7e0b8ae33a04a793a24eee.jpg" alt="Celebration">
+        <img src="https://static.tnn.in/photo/msid-94777159,width-100,height-200,resizemode-75/94777159.jpg?quality=100" alt="Diyas">
+    </div>
+
+    <!-- Firecracker-style Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        function launchFirecrackerConfetti() {
+            const duration = 10 * 1000; 
+            const end = Date.now() + duration;
+            const colors = ['#ff0000', '#ffeb3b', '#8F00FF', '#4caf50', '#ff5722', '#FFFFFF'];
+
+            (function frame() {
+                const timeLeft = end - Date.now();
+                if (timeLeft <= 0) return;
+
+                confetti({
+                    particleCount: Math.floor(Math.random() * 50) + 25, 
+                    startVelocity: Math.random() * 50 + 30,
+                    spread: Math.floor(Math.random() * 90) + 60, 
+                    origin: {
+                        x: Math.random(), 
+                        y: Math.random() * 0.5
+                    },
+                    colors: colors,
+                    ticks: 250, 
+                    gravity: 0.8, 
+                    scalar: Math.random() * 0.6 + 0.5,
+                });
+
+                requestAnimationFrame(frame);
+            })();
+        }
+
+        window.onload = function() {
+            launchFirecrackerConfetti();
+        };
+    </script>
+</body>
+</html>
